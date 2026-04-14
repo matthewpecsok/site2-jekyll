@@ -78,6 +78,20 @@
             transform: translateY(-2px);
         }
         
+        /* Make nav-links more prominent on mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                margin-top: 0.5rem;
+            }
+            
+            .nav-link {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+        }
+        
         .university-name {
             font-size: 1.2rem;
             font-weight: 700;
@@ -527,6 +541,26 @@
             }
         }
         
+        /* Footer back link styling */
+        .footer-back-link {
+            display: inline-block;
+            background: var(--uu-red);
+            color: var(--uu-white);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+        }
+        
+        .footer-back-link:hover {
+            background: #AA0000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(204, 0, 0, 0.4);
+            color: var(--uu-white);
+        }
+        
         /* Background pattern */
         body::before {
             content: '';
@@ -551,7 +585,7 @@
                 <span class="course-name">IS 4460</span>
             </div>
             <div class="nav-links">
-                <a href="preview.html" class="nav-link">← Back to Welcome</a>
+                <a href="preview.html" class="nav-link">🏠 Back to Welcome</a>
             </div>
         </div>
     </nav>
@@ -735,6 +769,10 @@ h1 {
         <div style="text-align: center; margin-top: 3rem; color: #666;">
             <p><em>コードは詩です (Code is poetry) - Let's create something beautiful!</em></p>
             <div style="font-size: 2rem; margin: 1rem 0;">&lt;🌸&gt; {🏔️} &lt;/🌸&gt;</div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #eee;">
+            <a href="preview.html" class="footer-back-link">🏠 Return to Course Welcome Page</a>
         </div>
     </main>
 

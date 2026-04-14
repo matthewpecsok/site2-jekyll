@@ -305,6 +305,35 @@ body {
     }
 }
 
+/* Page Navigation */
+.page-navigation {
+    text-align: left;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+}
+
+.back-link {
+    display: inline-block;
+    background: var(--uu-red);
+    color: var(--uu-white);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+    font-size: 1rem;
+}
+
+.back-link:hover {
+    background: #AA0000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(204, 0, 0, 0.4);
+    color: var(--uu-white);
+    text-decoration: none;
+}
+
 /* Subtle hover effects */
 .course-info:hover {
     transform: translateY(-2px);
