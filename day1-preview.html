@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 - HTML & CSS Fundamentals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* IS 4460 Day 1 Page Styles - University of Utah Theme with Japanese Elements */
+        
+        :root {
+            --uu-red: #CC0000;
+            --uu-white: #FFFFFF;
+            --uu-black: #000000;
+            --uu-gray: #666666;
+            --japan-gold: #FFD700;
+            --japan-sunset: #FF6B6B;
+            --cherry-pink: #FFB7C5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--uu-black);
+            background: linear-gradient(135deg, var(--uu-white) 0%, #f8f8f8 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: var(--uu-red);
+            color: var(--uu-white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--uu-white);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--uu-white);
+            transform: translateY(-2px);
+        }
+        
+        .university-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .course-name {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-top: 0.25rem;
+            letter-spacing: 2px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: var(--uu-white);
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        /* Welcome Section */
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .welcome-title {
+            font-size: 3rem;
+            color: var(--uu-red);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .welcome-subtitle {
+            font-size: 1.5rem;
+            color: var(--uu-gray);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .date-display {
+            background: var(--uu-red);
+            color: var(--uu-white);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+        }
+        
+        /* Japan Visualization Elements */
+        .japan-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 3rem 0;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .code-mountain {
+            width: 200px;
+            height: 120px;
+            background: linear-gradient(to top, #333 0%, #666 50%, #999 100%);
+            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+            position: relative;
+            margin: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: 'Courier New', monospace;
+        }
+
+        .html-layer {
+            color: #FF6B35;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .css-layer {
+            color: #4ECDC4;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .web-flag {
+            width: 150px;
+            height: 100px;
+            background: white;
+            border: 3px solid var(--uu-red);
+            border-radius: 10px;
+            display: flex;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .html-side {
+            flex: 1;
+            background: #FF6B35;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 7px 0 0 7px;
+        }
+
+        .css-side {
+            flex: 1;
+            background: #4ECDC4;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 0 7px 7px 0;
+        }
+
+        .zen-code {
+            width: 120px;
+            height: 120px;
+            border: 8px solid var(--uu-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .code-symbol {
+            font-size: 2.5rem;
+            color: var(--uu-red);
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        
+        /* Course Information */
+        .course-info {
+            background: linear-gradient(135deg, #f8f8f8 0%, var(--uu-white) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--uu-red);
+            margin: 2rem 0;
+        }
+        
+        .course-info h2 {
+            color: var(--uu-red);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .course-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .course-info li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .course-info li::before {
+            content: '🌸';
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Welcome Message */
+        .welcome-message {
+            background: linear-gradient(135deg, var(--cherry-pink) 0%, #FFE4E6 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid var(--uu-red);
+        }
+        
+        .welcome-message h3 {
+            color: var(--uu-red);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .demo-section {
+            margin: 3rem 0;
+        }
+
+        .activity-card {
+            background: #f8f9fa;
+            border: 2px solid var(--uu-red);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .activity-card h3 {
+            color: var(--uu-red);
+            margin-bottom: 1rem;
+        }
+
+        .code-sample {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 10px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .code-sample pre {
+            margin: 0;
+            font-family: 'Courier New', 'Monaco', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .color-swatch {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid #ddd;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .color-swatch.red { background: #CC0000; }
+        .color-swatch.white { background: #FFFFFF; }
+        .color-swatch.black { background: #000000; }
+
+        .learning-objectives {
+            margin: 3rem 0;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, #FFE4E6 0%, #FFF 100%);
+            border: 2px solid var(--uu-red);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .objective-card h4 {
+            color: var(--uu-red);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .homework-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 3rem 0;
+            border-left: 5px solid var(--uu-red);
+        }
+
+        .homework-section h2 {
+            color: var(--uu-red);
+            margin-bottom: 2rem;
+        }
+
+        .homework-item {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .homework-item h4 {
+            color: var(--uu-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .resources-section {
+            margin: 3rem 0;
+        }
+
+        .resources-section h2 {
+            color: var(--uu-red);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .resource-card {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-card:hover {
+            border-color: var(--uu-red);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(204, 0, 0, 0.1);
+        }
+
+        .resource-card h4 {
+            color: var(--uu-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-card small {
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--uu-black);
+            color: var(--uu-white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Torii Gate in Footer */
+        .torii-gate {
+            width: 80px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+        
+        .gate-pole {
+            width: 6px;
+            height: 50px;
+            background: var(--uu-red);
+            position: absolute;
+        }
+        
+        .gate-pole.left {
+            left: 10px;
+        }
+        
+        .gate-pole.right {
+            right: 10px;
+        }
+        
+        .gate-horizontal {
+            width: 80px;
+            height: 6px;
+            background: var(--uu-red);
+            position: absolute;
+            border-radius: 3px;
+        }
+        
+        .gate-horizontal.top {
+            top: 10px;
+        }
+        
+        .gate-horizontal.bottom {
+            top: 20px;
+            width: 60px;
+            left: 10px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .course-name {
+                font-size: 1.4rem;
+            }
+            
+            .japan-visual {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .main-content {
+                margin: 1rem;
+                padding: 2rem 1rem;
+            }
+            
+            .code-mountain {
+                width: 150px;
+                height: 90px;
+            }
+
+            .objectives-grid,
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .code-sample {
+                font-size: 0.8rem;
+                padding: 1rem;
+            }
+        }
+        
+        /* Background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(204, 0, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(204, 0, 0, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -2;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="university-name">University of Utah</span>
+                <span class="course-name">IS 4460</span>
+            </div>
+            <div class="nav-links">
+                <a href="preview.html" class="nav-link">← Back to Welcome</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="welcome-section">
+            <h1 class="welcome-title">Day 1: HTML & CSS Fundamentals</h1>
+            <h2 class="welcome-subtitle">Building the Foundation of Web Development</h2>
+            
+            <div class="date-display">
+                April 14, 2026 - IS 4460
+            </div>
+            
+            <div class="japan-visual">
+                <div class="code-mountain">
+                    <div class="html-layer">&lt;HTML&gt;</div>
+                    <div class="css-layer">{CSS}</div>
+                </div>
+                <div class="web-flag">
+                    <div class="html-side">HTML</div>
+                    <div class="css-side">CSS</div>
+                </div>
+                <div class="zen-code">
+                    <div class="code-symbol">&lt;/&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="welcome-message">
+            <h3>🌸 Today's Journey: From Structure to Style 🌸</h3>
+            <p>
+                Just as traditional Japanese architecture begins with a strong wooden framework (HTML) and is then beautified with elegant design elements (CSS), 
+                web development starts with solid structure before adding visual appeal. Today, we'll master both the foundation and the aesthetics of the web.
+            </p>
+            <p style="margin-top: 1rem; font-style: italic;">
+                "Even a journey of a thousand websites begins with a single &lt;tag&gt;." - Ancient Web Developer Wisdom
+            </p>
+        </div>
+
+        <div class="course-info">
+            <h2>🏗️ HTML Fundamentals - The Structure</h2>
+            <ul>
+                <li><strong>What is HTML?</strong> HyperText Markup Language - the skeleton of every webpage</li>
+                <li><strong>Document Structure:</strong> DOCTYPE, html, head, and body elements</li>
+                <li><strong>Essential Tags:</strong> headings (h1-h6), paragraphs (p), links (a), images (img)</li>
+                <li><strong>Lists & Navigation:</strong> ul, ol, li for organized content</li>
+                <li><strong>Semantic HTML:</strong> header, nav, main, section, article, footer</li>
+                <li><strong>Forms & Input:</strong> Building interactive elements</li>
+                <li><strong>Best Practices:</strong> Clean code, accessibility, and validation</li>
+            </ul>
+        </div>
+
+        <div class="course-info">
+            <h2>🎨 CSS Fundamentals - The Style</h2>
+            <ul>
+                <li><strong>What is CSS?</strong> Cascading Style Sheets - the visual layer of the web</li>
+                <li><strong>Selectors:</strong> Targeting elements with precision</li>
+                <li><strong>Properties & Values:</strong> color, font-size, margin, padding, and more</li>
+                <li><strong>Box Model:</strong> Understanding content, padding, border, and margin</li>
+                <li><strong>Layouts:</strong> Flexbox and Grid for responsive design</li>
+                <li><strong>Colors & Typography:</strong> Creating visual hierarchy</li>
+                <li><strong>Responsive Design:</strong> Making sites work on all devices</li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <h2>🔧 Today's Hands-On Activities</h2>
+            
+            <div class="activity-card">
+                <h3>Activity 1: Your First HTML Page</h3>
+                <div class="code-sample">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;Welcome to web development!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <h3>Activity 2: Adding Style with CSS</h3>
+                <div class="code-sample">
+                    <pre><code>body {
+    font-family: 'Arial', sans-serif;
+    background-color: #CC0000;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <h3>Activity 3: University of Utah Themed Page</h3>
+                <p>Create a personal webpage using UofU colors and Japanese design inspiration!</p>
+                <div class="color-palette">
+                    <div class="color-swatch red" title="UofU Red: #CC0000"></div>
+                    <div class="color-swatch white" title="White: #FFFFFF"></div>
+                    <div class="color-swatch black" title="Black: #000000"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="learning-objectives">
+            <h2>🎯 Learning Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h4>📝 Structure</h4>
+                    <p>Understand HTML document structure and semantic markup</p>
+                </div>
+                <div class="objective-card">
+                    <h4>🎨 Style</h4>
+                    <p>Apply CSS to create visually appealing web pages</p>
+                </div>
+                <div class="objective-card">
+                    <h4>📱 Responsive</h4>
+                    <p>Build pages that work on desktop and mobile</p>
+                </div>
+                <div class="objective-card">
+                    <h4>♿ Accessible</h4>
+                    <p>Create inclusive web experiences</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="homework-section">
+            <h2>📚 Before Next Class</h2>
+            <div class="homework-list">
+                <div class="homework-item">
+                    <h4>1. Complete the HTML Basics Tutorial</h4>
+                    <p>Work through the interactive HTML exercises on our course platform</p>
+                </div>
+                <div class="homework-item">
+                    <h4>2. Design Your Personal Page</h4>
+                    <p>Create a simple HTML page about yourself using proper semantic structure</p>
+                </div>
+                <div class="homework-item">
+                    <h4>3. Experiment with CSS</h4>
+                    <p>Add at least 10 different CSS properties to style your personal page</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources-section">
+            <h2>📖 Helpful Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h4>🌐 MDN Web Docs</h4>
+                    <p>The ultimate reference for HTML and CSS</p>
+                    <small>developer.mozilla.org</small>
+                </div>
+                <div class="resource-card">
+                    <h4>🎮 CSS Games</h4>
+                    <p>Flexbox Froggy & Grid Garden for fun practice</p>
+                    <small>flexboxfroggy.com</small>
+                </div>
+                <div class="resource-card">
+                    <h4>🎨 Color Tools</h4>
+                    <p>Adobe Color for beautiful palettes</p>
+                    <small>color.adobe.com</small>
+                </div>
+                <div class="resource-card">
+                    <h4>📐 Layout Practice</h4>
+                    <p>CSS Grid Garden for layout mastery</p>
+                    <small>cssgridgarden.com</small>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; color: #666;">
+            <p><em>コードは詩です (Code is poetry) - Let's create something beautiful!</em></p>
+            <div style="font-size: 2rem; margin: 1rem 0;">&lt;🌸&gt; {🏔️} &lt;/🌸&gt;</div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="torii-gate">
+                <div class="gate-pole left"></div>
+                <div class="gate-pole right"></div>
+                <div class="gate-horizontal top"></div>
+                <div class="gate-horizontal bottom"></div>
+            </div>
+            <p>&copy; 2026 University of Utah - Information Systems Department</p>
+        </div>
+    </footer>
+</body>
+</html>
