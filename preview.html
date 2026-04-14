@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to IS 4460!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* IS 4460 Class Page Styles - University of Utah Theme with Japanese Elements */
+        
+        :root {
+            --uu-red: #CC0000;
+            --uu-white: #FFFFFF;
+            --uu-black: #000000;
+            --uu-gray: #666666;
+            --japan-gold: #FFD700;
+            --japan-sunset: #FF6B6B;
+            --cherry-pink: #FFB7C5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--uu-black);
+            background: linear-gradient(135deg, var(--uu-white) 0%, #f8f8f8 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: var(--uu-red);
+            color: var(--uu-white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .university-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .course-name {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-top: 0.25rem;
+            letter-spacing: 2px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: var(--uu-white);
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        /* Welcome Section */
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .welcome-title {
+            font-size: 3rem;
+            color: var(--uu-red);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .welcome-subtitle {
+            font-size: 1.5rem;
+            color: var(--uu-gray);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .date-display {
+            background: var(--uu-red);
+            color: var(--uu-white);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+        }
+        
+        /* Japan Visualization Elements */
+        .japan-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 3rem 0;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .mount-fuji {
+            width: 200px;
+            height: 120px;
+            background: linear-gradient(to top, var(--uu-gray) 0%, #E8E8E8 50%, var(--uu-white) 100%);
+            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+            position: relative;
+            margin: 2rem;
+        }
+        
+        .mount-fuji::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 25%;
+            right: 25%;
+            height: 40%;
+            background: var(--uu-white);
+            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+        }
+        
+        .japanese-flag {
+            width: 150px;
+            height: 100px;
+            background: var(--uu-white);
+            border: 3px solid var(--uu-red);
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .japanese-flag::before {
+            content: '';
+            width: 50px;
+            height: 50px;
+            background: var(--uu-red);
+            border-radius: 50%;
+        }
+        
+        .zen-circle {
+            width: 120px;
+            height: 120px;
+            border: 8px solid var(--uu-red);
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .zen-circle::before {
+            content: '禅';
+            font-size: 3rem;
+            color: var(--uu-red);
+            font-weight: bold;
+        }
+        
+        /* Course Information */
+        .course-info {
+            background: linear-gradient(135deg, #f8f8f8 0%, var(--uu-white) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--uu-red);
+            margin: 2rem 0;
+        }
+        
+        .course-info h2 {
+            color: var(--uu-red);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .course-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .course-info li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .course-info li::before {
+            content: '🌸';
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Welcome Message */
+        .welcome-message {
+            background: linear-gradient(135deg, var(--cherry-pink) 0%, #FFE4E6 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid var(--uu-red);
+        }
+        
+        .welcome-message h3 {
+            color: var(--uu-red);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--uu-black);
+            color: var(--uu-white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Torii Gate in Footer */
+        .torii-gate {
+            width: 80px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+        
+        .gate-pole {
+            width: 6px;
+            height: 50px;
+            background: var(--uu-red);
+            position: absolute;
+        }
+        
+        .gate-pole.left {
+            left: 10px;
+        }
+        
+        .gate-pole.right {
+            right: 10px;
+        }
+        
+        .gate-horizontal {
+            width: 80px;
+            height: 6px;
+            background: var(--uu-red);
+            position: absolute;
+            border-radius: 3px;
+        }
+        
+        .gate-horizontal.top {
+            top: 10px;
+        }
+        
+        .gate-horizontal.bottom {
+            top: 20px;
+            width: 60px;
+            left: 10px;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+            }
+            50% { 
+                transform: translateY(-20px) rotate(180deg); 
+            }
+        }
+        
+        @keyframes drift {
+            0% {
+                transform: translateX(-100px) translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateX(100px) translateY(-100px) rotate(360deg);
+            }
+        }
+        
+        .cherry-blossom {
+            position: fixed;
+            font-size: 20px;
+            animation: drift 8s linear infinite;
+            z-index: -1;
+        }
+        
+        .blossom-1 { animation-delay: 0s; left: 10%; }
+        .blossom-2 { animation-delay: 2s; left: 30%; }
+        .blossom-3 { animation-delay: 4s; left: 50%; }
+        .blossom-4 { animation-delay: 6s; left: 70%; }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .course-name {
+                font-size: 1.4rem;
+            }
+            
+            .japan-visual {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .main-content {
+                margin: 1rem;
+                padding: 2rem 1rem;
+            }
+            
+            .mount-fuji {
+                width: 150px;
+                height: 90px;
+            }
+        }
+        
+        /* Subtle hover effects */
+        .course-info:hover {
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .welcome-message:hover {
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(204, 0, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(204, 0, 0, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -2;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="university-name">University of Utah</span>
+                <span class="course-name">IS 4460</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="welcome-section">
+            <h1 class="welcome-title">Welcome to IS 4460!</h1>
+            <h2 class="welcome-subtitle">Information Systems at the University of Utah</h2>
+            
+            <div class="date-display">
+                First Day of Class - Spring 2026
+            </div>
+            
+            <div class="japan-visual">
+                <div class="mount-fuji" title="Mount Fuji - Symbol of perseverance and achievement"></div>
+                <div class="japanese-flag" title="Japan - Land of innovation and technology"></div>
+                <div class="zen-circle" title="Zen - Balance in learning and growth"></div>
+            </div>
+        </div>
+
+        <div class="welcome-message">
+            <h3>🌸 Welcome, Future Information Systems Professionals! 🌸</h3>
+            <p>
+                Konnichiwa and welcome to your first day of IS 4460! Just as Japan seamlessly blends ancient wisdom with cutting-edge technology, 
+                we'll explore how information systems bridge traditional business practices with innovative digital solutions. 
+                Today marks the beginning of an exciting journey where you'll discover how technology transforms organizations and society.
+            </p>
+            <p style="margin-top: 1rem; font-style: italic;">
+                "The bamboo that bends is stronger than the oak that resists." - Japanese Proverb<br>
+                <small>Embrace flexibility and continuous learning as we navigate the ever-evolving world of information systems.</small>
+            </p>
+        </div>
+
+        <div class="course-info">
+            <h2>Course Overview</h2>
+            <ul>
+                <li><strong>Course:</strong> IS 4460 - Information Systems Management</li>
+                <li><strong>Semester:</strong> Spring 2026</li>
+                <li><strong>Institution:</strong> University of Utah</li>
+                <li><strong>Focus:</strong> Strategic IS Management & Digital Transformation</li>
+                <li><strong>Philosophy:</strong> Learning through innovation, just like Japan's approach to technology</li>
+            </ul>
+        </div>
+
+        <div class="course-info">
+            <h2>What We'll Explore This Semester</h2>
+            <ul>
+                <li>Digital Transformation Strategies (inspired by Japan's Society 5.0 vision)</li>
+                <li>Information Systems Architecture & Design</li>
+                <li>Data Analytics and Business Intelligence</li>
+                <li>Cybersecurity in the Digital Age</li>
+                <li>Emerging Technologies (AI, IoT, Blockchain)</li>
+                <li>Global IS Perspectives (with special focus on Japanese innovation)</li>
+                <li>Project Management and Agile Methodologies</li>
+            </ul>
+        </div>
+
+        <div class="welcome-message">
+            <h3>🏔️ Your Learning Journey Begins Today 🏔️</h3>
+            <p>
+                Like climbing Mount Fuji, mastering information systems requires patience, persistence, and the right preparation. 
+                Each step builds upon the previous one, and the view from the summit – understanding how technology shapes our world – 
+                is absolutely worth the effort.
+            </p>
+            <p style="margin-top: 1rem;">
+                <strong>Ready to start this adventure?</strong> Let's build something amazing together this semester!
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; color: #666;">
+            <p><em>頑張って！ (Ganbatte! - Good luck and give it your best!)</em></p>
+            <div style="font-size: 2rem; margin: 1rem 0;">🌸 🏔️ 🏯 🌸</div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="torii-gate">
+                <div class="gate-pole left"></div>
+                <div class="gate-pole right"></div>
+                <div class="gate-horizontal top"></div>
+                <div class="gate-horizontal bottom"></div>
+            </div>
+            <p>&copy; 2026 University of Utah - Information Systems Department</p>
+        </div>
+    </footer>
+
+    <!-- Floating cherry blossoms -->
+    <div class="cherry-blossom blossom-1">🌸</div>
+    <div class="cherry-blossom blossom-2">🌸</div>
+    <div class="cherry-blossom blossom-3">🌸</div>
+    <div class="cherry-blossom blossom-4">🌸</div>
+</body>
+</html>

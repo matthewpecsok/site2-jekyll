@@ -1,0 +1,333 @@
+/* IS 4460 Class Page Styles - University of Utah Theme with Japanese Elements */
+
+:root {
+    --uu-red: #CC0000;
+    --uu-white: #FFFFFF;
+    --uu-black: #000000;
+    --uu-gray: #666666;
+    --japan-gold: #FFD700;
+    --japan-sunset: #FF6B6B;
+    --cherry-pink: #FFB7C5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--uu-black);
+    background: linear-gradient(135deg, var(--uu-white) 0%, #f8f8f8 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    background: var(--uu-red);
+    color: var(--uu-white);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.nav-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.university-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.course-name {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-top: 0.25rem;
+    letter-spacing: 2px;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    background: var(--uu-white);
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.welcome-title {
+    font-size: 3rem;
+    color: var(--uu-red);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.welcome-subtitle {
+    font-size: 1.5rem;
+    color: var(--uu-gray);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.date-display {
+    background: var(--uu-red);
+    color: var(--uu-white);
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 1rem 0;
+    box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+}
+
+/* Japan Visualization Elements */
+.japan-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.mount-fuji {
+    width: 200px;
+    height: 120px;
+    background: linear-gradient(to top, var(--uu-gray) 0%, #E8E8E8 50%, var(--uu-white) 100%);
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+    position: relative;
+    margin: 2rem;
+}
+
+.mount-fuji::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    height: 40%;
+    background: var(--uu-white);
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+}
+
+.japanese-flag {
+    width: 150px;
+    height: 100px;
+    background: var(--uu-white);
+    border: 3px solid var(--uu-red);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.japanese-flag::before {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: var(--uu-red);
+    border-radius: 50%;
+}
+
+.zen-circle {
+    width: 120px;
+    height: 120px;
+    border: 8px solid var(--uu-red);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zen-circle::before {
+    content: '禅';
+    font-size: 3rem;
+    color: var(--uu-red);
+    font-weight: bold;
+}
+
+/* Course Information */
+.course-info {
+    background: linear-gradient(135deg, #f8f8f8 0%, var(--uu-white) 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid var(--uu-red);
+    margin: 2rem 0;
+}
+
+.course-info h2 {
+    color: var(--uu-red);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.course-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.course-info li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.course-info li::before {
+    content: '🌸';
+    position: absolute;
+    left: 0;
+}
+
+/* Welcome Message */
+.welcome-message {
+    background: linear-gradient(135deg, var(--cherry-pink) 0%, #FFE4E6 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    border: 2px solid var(--uu-red);
+}
+
+.welcome-message h3 {
+    color: var(--uu-red);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Footer */
+.footer {
+    background: var(--uu-black);
+    color: var(--uu-white);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Torii Gate in Footer */
+.torii-gate {
+    width: 80px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.gate-pole {
+    width: 6px;
+    height: 50px;
+    background: var(--uu-red);
+    position: absolute;
+}
+
+.gate-pole.left {
+    left: 10px;
+}
+
+.gate-pole.right {
+    right: 10px;
+}
+
+.gate-horizontal {
+    width: 80px;
+    height: 6px;
+    background: var(--uu-red);
+    position: absolute;
+    border-radius: 3px;
+}
+
+.gate-horizontal.top {
+    top: 10px;
+}
+
+.gate-horizontal.bottom {
+    top: 20px;
+    width: 60px;
+    left: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .course-name {
+        font-size: 1.4rem;
+    }
+    
+    .japan-visual {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .main-content {
+        margin: 1rem;
+        padding: 2rem 1rem;
+    }
+    
+    .mount-fuji {
+        width: 150px;
+        height: 90px;
+    }
+}
+
+/* Subtle hover effects */
+.course-info:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.welcome-message:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+/* Background pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(204, 0, 0, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(204, 0, 0, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -2;
+}

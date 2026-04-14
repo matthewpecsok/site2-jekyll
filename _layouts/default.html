@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="university-name">University of Utah</span>
+                <span class="course-name">IS 4460</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {{ content }}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="torii-gate">
+                <div class="gate-pole left"></div>
+                <div class="gate-pole right"></div>
+                <div class="gate-horizontal top"></div>
+                <div class="gate-horizontal bottom"></div>
+            </div>
+            <p>&copy; 2026 University of Utah - Information Systems Department</p>
+        </div>
+    </footer>
+
+    <!-- Floating cherry blossoms -->
+    <div class="cherry-blossom blossom-1">🌸</div>
+    <div class="cherry-blossom blossom-2">🌸</div>
+    <div class="cherry-blossom blossom-3">🌸</div>
+    <div class="cherry-blossom blossom-4">🌸</div>
+
+    <style>
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+            }
+            50% { 
+                transform: translateY(-20px) rotate(180deg); 
+            }
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translateX(-100px) translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateX(100px) translateY(-100px) rotate(360deg);
+            }
+        }
+
+        .cherry-blossom {
+            position: fixed;
+            font-size: 20px;
+            animation: drift 8s linear infinite;
+            z-index: -1;
+        }
+
+        .blossom-1 { animation-delay: 0s; left: 10%; }
+        .blossom-2 { animation-delay: 2s; left: 30%; }
+        .blossom-3 { animation-delay: 4s; left: 50%; }
+        .blossom-4 { animation-delay: 6s; left: 70%; }
+    </style>
+</body>
+</html>
